@@ -16,7 +16,6 @@ class TransaksiController extends Controller
         return view('transaksi.index', compact('laptops', 'transaksis'));
         $laptops = Gudang::where('stok', '>', 0)->get();
     
-        // Ubah ->get() menjadi ->paginate(10)
         $transaksis = Transaksi::with('gudangs')->latest()->paginate(10);
         
         return view('transaksi.index', compact('laptops', 'transaksis'));
