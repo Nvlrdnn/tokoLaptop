@@ -41,11 +41,11 @@
 
             <div class="grid grid-cols-2 gap-3">
                 <div>
-                    <label class="block text-xs font-medium text-slate-400 mb-1">Jumlah</label>
+                    <label class="block text-xs font-medium text-white mb-1">Jumlah</label>
                     <input type="number" name="jumlah" id="inputJumlah" value="1" min="1" oninput="hitungTotal()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2.5 text-white text-sm focus:border-indigo-500 focus:outline-none" required>
                 </div>
                 <div>
-                    <label class="block text-xs font-medium text-slate-400 mb-1">Uang Bayar (Rp)</label>
+                    <label class="block text-xs font-medium text-white mb-1">Uang Bayar (Rp)</label>
                     <input type="number" name="bayar" id="inputBayar" min="0" oninput="hitungKembalian()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2.5 text-white text-sm focus:border-indigo-500 focus:outline-none" required>
                 </div>
             </div>
