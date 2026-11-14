@@ -50,14 +50,14 @@
                         <td class="p-4 text-white max-w-xs truncate">{{ $item->spesifikasi }}</td>
                         <td class="p-4">
                             @if($item->stok > 5)
-                                <span class="bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-2.5 py-1 rounded-full text-xs font-medium">{{ $item->stok }} Unit</span>
+                                <span class="bg-emerald-500/10 text-white border border-emerald-500/20 px-2.5 py-1 rounded-full text-xs font-medium">{{ $item->stok }} Unit</span>
                             @elseif($item->stok > 0)
-                                <span class="bg-amber-500/10 text-amber-400 border border-amber-500/20 px-2.5 py-1 rounded-full text-xs font-medium">Sisa {{ $item->stok }} Unit</span>
+                                <span class="bg-amber-500/10 text-white border border-amber-500/20 px-2.5 py-1 rounded-full text-xs font-medium">Sisa {{ $item->stok }} Unit</span>
                             @else
-                                <span class="bg-rose-500/10 text-rose-400 border border-rose-500/20 px-2.5 py-1 rounded-full text-xs font-medium">Habis</span>
+                                <span class="bg-rose-500/10 text-white border border-rose-500/20 px-2.5 py-1 rounded-full text-xs font-medium">Habis</span>
                             @endif
                         </td>
-                        <td class="p-4 font-semibold text-emerald-400">Rp {{ number_format($item->harga, 0, ',', '.') }}</td>
+                        <td class="p-4 font-semibold text-white">Rp {{ number_format($item->harga, 0, ',', '.') }}</td>
                         <td class="p-4 text-right">
                             <button type="button" onclick="openEditModal({{ $item->id }}, '{{ addslashes($item->nama_laptop) }}', {{ $item->stok }}, {{ $item->harga }})" 
                                     class="text-amber-400 hover:text-amber-300 p-2 rounded-lg hover:bg-amber-500/10 transition">
