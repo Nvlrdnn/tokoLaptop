@@ -88,7 +88,7 @@
                     @forelse($transaksis as $trx)
                         @foreach($trx->gudangs as $laptop)
                         <tr class="hover:bg-slate-700/30 transition">
-                            <td class="p-3 font-mono text-xs text-yellow font-bold">{{ $trx->kode_transaksi }}</td>
+                            <td class="p-3 font-mono text-yellow font-bold">{{ $trx->kode_transaksi }}</td>
                             <td class="p-3 text-white font-medium">{{ $laptop->nama_laptop }}</td>
                             <td class="p-3 text-slate-300">{{ $laptop->pivot->jumlah }} unit</td>
                             <td class="p-3 text-emerald-400 font-semibold">Rp {{ number_format($trx->total_harga, 0, ',', '.') }}</td>
