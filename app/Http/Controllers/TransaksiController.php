@@ -11,9 +11,9 @@ class TransaksiController extends Controller
 {
     public function index()
     {
-        $laptops = Gudang::where('stok', '>', 0)->get();
-        $transaksis = Transaksi::with('gudangs')->latest()->get();
-        return view('transaksi.index', compact('laptops', 'transaksis'));
+        //$laptops = Gudang::where('stok', '>', 0)->get();
+        //$transaksis = Transaksi::with('gudangs')->latest()->get();
+        //return view('transaksi.index', compact('laptops', 'transaksis'));
         $laptops = Gudang::where('stok', '>', 0)->get();
     
         $transaksis = Transaksi::with('gudangs')->latest()->paginate(10);
