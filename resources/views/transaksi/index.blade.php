@@ -92,8 +92,8 @@
                             <td class="p-3 text-white font-medium">{{ $laptop->nama_laptop }}</td>
                             <td class="p-3 text-slate-300">{{ $laptop->pivot->jumlah }} unit</td>
                             <td class="p-3 text-emerald-400 font-semibold">Rp {{ number_format($trx->total_harga, 0, ',', '.') }}</td>
-                            <td class="p-3 text-slate-400">Rp {{ number_format($trx->bayar, 0, ',', '.') }}</td>
-                            <td class="p-3 text-slate-400">Rp {{ number_format($trx->kembali, 0, ',', '.') }}</td>
+                            <td class="p-3 text-white">Rp {{ number_format($trx->bayar, 0, ',', '.') }}</td>
+                            <td class="p-3 text-white">Rp {{ number_format($trx->kembali, 0, ',', '.') }}</td>
                         </tr>
                         @endforeach
                     @empty
