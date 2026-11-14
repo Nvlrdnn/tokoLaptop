@@ -23,6 +23,7 @@ Route::middleware(['auth'])->group(function () {
     Route::middleware(['role:admin_gudang,bos'])->group(function () {
         Route::get('/gudang', [GudangController::class, 'index'])->name('gudang.index');
         Route::post('/gudang', [GudangController::class, 'store'])->name('gudang.store');
+        Route::put('/gudang/{id}', [GudangController::class, 'update'])->name('gudang.update');
         Route::delete('/gudang/{id}', [GudangController::class, 'destroy'])->name('gudang.destroy');
     });
 

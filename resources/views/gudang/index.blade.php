@@ -59,6 +59,10 @@
                         </td>
                         <td class="p-4 font-semibold text-emerald-400">Rp {{ number_format($item->harga, 0, ',', '.') }}</td>
                         <td class="p-4 text-right">
+                            <button type="button" onclick="openEditModal({{ $item->id }}, '{{ addslashes($item->nama_laptop) }}', {{ $item->stok }}, {{ $item->harga }})" 
+                                    class="text-amber-400 hover:text-amber-300 p-2 rounded-lg hover:bg-amber-500/10 transition">
+                                <i class="fa-solid fa-pen-to-square"></i>
+                            </button>
                             <form action="{{ route('gudang.destroy', $item->id) }}" method="POST" class="inline" onsubmit="return confirm('Hapus laptop ini dari gudang?')">
                                 @csrf
                                 @method('DELETE')
@@ -116,6 +120,50 @@
         </form>
     </div>
 </div>
+<div id="editModal" class="fixed inset-0 bg-black/75 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
+    <div class="bg-slate-900 border border-slate-700 rounded-2xl max-w-md w-full p-6 space-y-4">
+        <h3 class="text-lg font-bold text-white">Edit Data Laptop</h3>
+
+        <!-- Nah, di sini catatan Langkah 1 tadi dipakai -->
+        <form id="editForm" method="POST" class="space-y-3">
+            @csrf
+            @method('PUT')
+            <div>
+                <label class="block text-xs text-slate-400 mb-1">Nama Laptop</label>
+                <input type="text" name="nama_laptop" id="editNama" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3 py-2 text-sm text-white" required>
+            </div>
+            <div class="grid grid-cols-2 gap-3">
+                <div>
+                    <label class="block text-xs text-slate-400 mb-1">Stok</label>
+                    <input type="number" name="stok" id="editStok" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3 py-2 text-sm text-white" required>
+                </div>
+                <div>
+                    <label class="block text-xs text-slate-400 mb-1">Harga (Rp)</label>
+                    <input type="number" name="harga" id="editHarga" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3 py-2 text-sm text-white" required>
+                </div>
+            </div>
+            <div class="flex justify-end space-x-2 pt-3">
+                <button type="button" onclick="closeEditModal()" class="px-4 py-2 bg-slate-800 text-slate-300 rounded-xl text-xs font-semibold">Batal</button>
+                <button type="submit" class="px-4 py-2 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl text-xs font-semibold">Simpan Perubahan</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    function openEditModal(id, nama, stok, harga) {
+        document.getElementById('editForm').action = '/gudang/' + id;
+        document.getElementById('editNama').value = nama;
+        document.getElementById('editStok').value = stok;
+        document.getElementById('editHarga').value = harga;
+        document.getElementById('editModal').classList.remove('hidden');
+        document.getElementById('editModal').classList.add('flex');
+    }
+    function closeEditModal() {
+        document.getElementById('editModal').classList.add('hidden');
+        document.getElementById('editModal').classList.remove('flex');
+    }
+</script>
 @endsection
 </body>
 </html>

@@ -104,6 +104,9 @@
                 </tbody>
             </table>
         </div>
+        <div class="mt-4">
+            {{ $transaksis->links() }}
+        </div>
     </div>
 </div>
 @endsection
