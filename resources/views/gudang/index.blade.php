@@ -45,9 +45,9 @@
                 <tbody class="divide-y divide-slate-700/50 text-sm">
                     @forelse($gudangs as $item)
                     <tr class="hover:bg-slate-700/30 transition">
-                        <td class="p-4 font-mono text-slate-500">#{{ $item->id }}</td>
+                        <td class="p-4 font-mono text-white">#{{ $item->id }}</td>
                         <td class="p-4 font-semibold text-white">{{ $item->nama_laptop }}</td>
-                        <td class="p-4 text-slate-300 max-w-xs truncate">{{ $item->spesifikasi }}</td>
+                        <td class="p-4 text-white max-w-xs truncate">{{ $item->spesifikasi }}</td>
                         <td class="p-4">
                             @if($item->stok > 5)
                                 <span class="bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-2.5 py-1 rounded-full text-xs font-medium">{{ $item->stok }} Unit</span>
@@ -124,7 +124,6 @@
     <div class="bg-slate-900 border border-slate-700 rounded-2xl max-w-md w-full p-6 space-y-4">
         <h3 class="text-lg font-bold text-white">Edit Data Laptop</h3>
 
-        <!-- Nah, di sini catatan Langkah 1 tadi dipakai -->
         <form id="editForm" method="POST" class="space-y-3">
             @csrf
             @method('PUT')
