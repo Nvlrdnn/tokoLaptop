@@ -31,6 +31,9 @@
 
                 <!-- Navigation Links Berdasarkan Role -->
                 <nav class="flex space-x-2">
+                    <a href="{{ route('katalog.index') }}" target="_blank" class="px-3 py-1.5 rounded-lg text-xs font-medium text-cyan-400 hover:bg-slate-700/50 transition">
+                        <i class="fa-solid fa-store mr-1"></i> Lihat Toko
+                    </a>
                     @if(in_array(auth()->user()->role, ['admin_gudang', 'bos']))
                         <a href="{{ route('gudang.index') }}" class="px-3.5 py-1.5 rounded-lg text-sm font-medium transition {{ request()->routeIs('gudang.*') ? 'bg-indigo-600 text-white' : 'text-slate-400 hover:text-white hover:bg-slate-700/50' }}">
                             <i class="fa-solid fa-boxes-stacked mr-1.5"></i> Inventaris Gudang
